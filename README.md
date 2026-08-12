@@ -20,6 +20,54 @@ In this lab, you will build a **Read-Only RESTful API** to serve a list of produ
 
 You’ll simulate a product catalog using an in-memory list of dictionaries, format all responses as JSON, and follow best practices for route design and error handling.
 
+## API Summary
+
+This Flask API exposes a simple product catalog with the following behavior:
+
+- `GET /` returns a JSON welcome message
+- `GET /products` returns all available products
+- `GET /products/<id>` returns a single product by its ID
+- `GET /products?category=books` returns products filtered by category
+
+All responses use `jsonify()` and return appropriate HTTP status codes, including `200 OK` for successful requests and `404 Not Found` when a product is missing.
+
+## Example Usage
+
+Fetch the homepage:
+
+```bash
+curl http://localhost:5000/
+```
+
+Fetch all products:
+
+```bash
+curl http://localhost:5000/products
+```
+
+Fetch product with ID 2:
+
+```bash
+curl http://localhost:5000/products/2
+```
+
+Filter products by category:
+
+```bash
+curl "http://localhost:5000/products?category=books"
+```
+
+Sample JSON response for `GET /products/2`:
+
+```json
+{
+  "id": 2,
+  "name": "Book",
+  "price": 14.99,
+  "category": "books"
+}
+```
+
 ## Setup Instructions
 
 ### Fork and Clone the Repository
